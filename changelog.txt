@@ -1,3 +1,6 @@
+Bugfixes:
+* Fixed urls for login allowing bank and calendar to work again
+
 0.5.3
 * Removed titles due to removal from Blizzard Armory.
 

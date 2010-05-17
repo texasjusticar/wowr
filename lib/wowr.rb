@@ -490,7 +490,7 @@ module Wowr
 				raise Wowr::Exceptions::RealmNotSet.new
 			end
 			
-			options.merge!(:secure => true)
+			#options.merge!(:secure => true)
 			
 			xml = get_xml(@@guild_bank_contents_url, options)
 			
@@ -533,7 +533,7 @@ module Wowr
 				raise Wowr::Exceptions::RealmNotSet.new
 			end
 			
-			options.merge!(:secure => true)
+			#options.merge!(:secure => true)
 			
 			xml = get_xml(@@guild_bank_log_url, options)
 			
@@ -612,7 +612,7 @@ module Wowr
 				raise Wowr::Exceptions::RealmNotSet.new
 			end
 			
-			options.merge!(:secure => true)
+			#options.merge!(:secure => true)
 
 			json = get_json(@@calendar_world_url, options)
 
@@ -698,7 +698,7 @@ module Wowr
 				raise Wowr::Exceptions::RealmNotSet.new
 			end
 			
-			options.merge!(:secure => true)
+			#options.merge!(:secure => true)
 
 			json = get_json(@@calendar_user_url, options)
 
@@ -758,7 +758,7 @@ module Wowr
 				raise Wowr::Exceptions::EventNotSet.new
 			end
 			
-			options.merge!(:secure => true)
+			#options.merge!(:secure => true)
 
 			json = get_json(@@calendar_detail_url, options)
 
@@ -822,7 +822,7 @@ module Wowr
 		#
 		def login(username, password, authenticator = nil, both = false)
 			# Create the base URL we will be POSTing to.
-			authentication_url = base_url(@locale, {:secure => true, :login => true}) + @@login_url + "?app=armory"
+			authentication_url = base_url(@locale, {:secure => true, :login => true}) + @@login_url + "?rhtml=y&app=armory"
 			
 			# Ensure we add the correct bounce point.
 			if (@locale == "www")
@@ -913,7 +913,7 @@ module Wowr
 		# Reobtains a short term cookie by using the given long life cookie.
 		def refresh_login(long_life_cookie)
 			# Create the base URL we will be POSTing to.
-			authentication_url = base_url(@locale, {:secure => true, :login => true}) + @@login_url + "?app=armory"
+			authentication_url = base_url(@locale, {:secure => true, :login => true}) + @@login_url + "?rhtml=y&app=armory"
 			
 			# Ensure we add the correct bounce point.
 			if (@locale == "www")
@@ -960,11 +960,11 @@ module Wowr
 				str += 'http://'
 			end
 			
-			if (locale == 'us')
-				str += 'www.'
-			else
+			#if (locale == 'us')
+			#	str += 'www.'
+			#else
 				str += locale + "."
-			end
+			#end
 			
 			if (options[:login] == true)
 			        str += @@login_base_url
